@@ -1,0 +1,1 @@
+Compile and run with STM32CubeIDE, not TouchGFXDesigner.

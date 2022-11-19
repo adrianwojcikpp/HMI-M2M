@@ -1,0 +1,747 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "Screen1",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "backgroundOut",
+            "X": 240,
+            "Width": 240,
+            "Height": 272
+          },
+          {
+            "Type": "Box",
+            "Name": "backgroundIn",
+            "Width": 240,
+            "Height": 272
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn1",
+            "X": 297,
+            "Y": 67,
+            "Width": 170,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+            "TextId": "__SingleUse_ALD7",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0",
+            "Style": "Style4"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "labelIn",
+            "X": 56,
+            "Y": 10,
+            "Width": 152,
+            "Height": 49,
+            "TextId": "__SingleUse_ZVOY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "labelOut",
+            "X": 265,
+            "Y": 10,
+            "Width": 190,
+            "Height": 49,
+            "TextId": "__SingleUse_066M",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder1",
+            "X": 35,
+            "Y": 67,
+            "Width": 170,
+            "Height": 60,
+            "BorderColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "TextArea",
+            "Name": "encCnt",
+            "X": 97,
+            "Y": 97,
+            "Width": 34,
+            "Height": 22,
+            "TextId": "__SingleUse_SN1A",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_ZQFJ",
+              "UseBuffer": true,
+              "BufferSize": 10
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 47,
+            "Y": 75,
+            "Width": 147,
+            "Height": 22,
+            "TextId": "__SingleUse_5G4V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Circle",
+            "Name": "circle1",
+            "X": 257,
+            "Y": 77,
+            "Width": 40,
+            "Height": 40,
+            "CenterX": 20.0,
+            "CenterY": 20.0,
+            "Radius": 20.0,
+            "EndAngle": 360.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder2",
+            "X": 35,
+            "Y": 136,
+            "Width": 170,
+            "Height": 60,
+            "BorderColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 65,
+            "Y": 144,
+            "Width": 110,
+            "Height": 22,
+            "TextId": "__SingleUse_CZBA",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "btnState",
+            "X": 56,
+            "Y": 166,
+            "Width": 129,
+            "Height": 22,
+            "TextId": "__SingleUse_ALFT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_ED87",
+              "UseBuffer": true,
+              "BufferSize": 32
+            }
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn2",
+            "X": 297,
+            "Y": 136,
+            "Width": 170,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_Edge_small_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_Edge_small.png",
+            "TextId": "__SingleUse_ZAXX",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0",
+            "Style": "Style4"
+          },
+          {
+            "Type": "BoxWithBorder",
+            "Name": "boxWithBorder3",
+            "X": 35,
+            "Y": 206,
+            "Width": 366,
+            "Height": 60,
+            "BorderColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "BorderSize": 5
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea3",
+            "X": 44,
+            "Y": 214,
+            "Width": 180,
+            "Height": 22,
+            "TextId": "__SingleUse_1W9P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "spMsg",
+            "X": 44,
+            "Y": 236,
+            "Width": 36,
+            "Height": 22,
+            "TextId": "__SingleUse_7PGW",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_QOBU",
+              "UseBuffer": true,
+              "BufferSize": 64
+            }
+          },
+          {
+            "Type": "Button",
+            "Name": "btn3",
+            "X": 407,
+            "Y": 206,
+            "Width": 60,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_icon_button_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_icon_button.png"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "LedTogggle",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn1"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"main.h\"",
+              "Code": "HAL_GPIO_TogglePin(ARDUINO_D4_GPIO_Port, ARDUINO_D4_Pin);"
+            }
+          },
+          {
+            "InteractionName": "BoxColorToggle",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn1"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "static int n = 0;        \r\nn++;\r\n        \r\nif(n%2)\r\n{\r\n  circle1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 255));\r\n  circle1.setPainter(circle1Painter);\r\n}\r\nelse\r\n{\r\n  circle1Painter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));\r\n  circle1.setPainter(circle1Painter);\r\n}\r\ncircle1.invalidate();"
+            }
+          },
+          {
+            "InteractionName": "EncCntUpdate",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 10
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "extern TIM_HandleTypeDef htim3;",
+              "Code": "static int N = 0;\r\nN++;\r\nUnicode::snprintf(encCntBuffer, ENCCNT_SIZE, \"%03d\", __HAL_TIM_GET_COUNTER(&htim3)/4);\r\nencCnt.invalidate();"
+            }
+          },
+          {
+            "InteractionName": "BtnCheck",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "if(!HAL_GPIO_ReadPin(ARDUINO_D5_GPIO_Port, ARDUINO_D5_Pin))\r\n{\r\n  Unicode::snprintf(btnStateBuffer, BTNSTATE_SIZE, \"  PRESSED  \");\r\n  btnState.setColor(touchgfx::Color::getColorFromRGB(0, 255, 0));\r\n}\r\nelse\r\n{\r\n  Unicode::snprintf(btnStateBuffer, BTNSTATE_SIZE, \"NOT PRESSED\");\r\n  btnState.setColor(touchgfx::Color::getColorFromRGB(255, 0, 0));\r\n}\t\r\nbtnState.invalidate();\r\n"
+            }
+          },
+          {
+            "InteractionName": "SendHello",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn2"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "extern UART_HandleTypeDef huart1;",
+              "Code": "static const uint8_t hello[] = \"Hello, World!\\r\\n\";\r\nHAL_UART_Transmit(&huart1, hello, sizeof(hello)-1, 10); "
+            }
+          },
+          {
+            "InteractionName": "SpUpdate",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "extern int rxNewData;\r\nextern uint8_t rxBuffer[64]; ",
+              "Code": "if(rxNewData)\r\n{\r\n  rxNewData = 0;\r\n  Unicode::fromUTF8(rxBuffer, spMsgBuffer+3, SPMSG_SIZE-3);\r\n  spMsg.invalidate();\r\n  spMsg.resizeToCurrentText();\r\n  spMsg.invalidate();\r\n}"
+            }
+          },
+          {
+            "InteractionName": "PlotScreen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn3"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen2"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen2",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "Button",
+            "Name": "btn3",
+            "X": 407,
+            "Y": 206,
+            "Width": 60,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_icon_button_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_icon_button.png"
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "Y": 23,
+            "Width": 474,
+            "Height": 207,
+            "DataSeed": -1166692281,
+            "NumberOfValues": 100,
+            "MaxY": 1000.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "LabelSizeTop": 12,
+            "LabelSizeBottom": 20,
+            "LabelSizeLeft": 30,
+            "PaddingBottom": 5,
+            "PaddingLeft": 5,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 4,
+                "Color": {
+                  "Red": 196,
+                  "Green": 22,
+                  "Blue": 54
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 200.0,
+              "LineWidth": 1
+            },
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "__SingleUse_GN6L",
+              "TextRotation": "0",
+              "Position": "Bottom"
+            },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 200.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "__SingleUse_30JJ",
+              "TextRotation": "0",
+              "Position": "Left"
+            }
+          },
+          {
+            "Type": "ToggleButton",
+            "Name": "toggleButton1",
+            "Y": 236,
+            "Width": 96,
+            "Height": 38,
+            "Pressed": "__designer\\Blue_Togglebars_Toggle_round_small_button_ON.png",
+            "Released": "__designer\\Blue_Togglebars_Toggle_round_small_button_OFF.png",
+            "Style": "Style5"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 15,
+            "Y": 224,
+            "Width": 67,
+            "Height": 12,
+            "TextId": "__SingleUse_COEV",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 23,
+            "Y": 1,
+            "Width": 147,
+            "Height": 22,
+            "TextId": "__SingleUse_EMDS",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "NextScreen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn3"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen3"
+            }
+          },
+          {
+            "InteractionName": "UpdatePlot",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 10
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"main.h\"\r\n#include <stdlib.h>\r\nextern TIM_HandleTypeDef htim3;",
+              "Code": "if(!toggleButton1.getState())\r\n  dynamicGraph1.addDataPoint((int)(__HAL_TIM_GET_COUNTER(&htim3)/4));\r\nelse\r\n  dynamicGraph1.addDataPoint((int)(rand()%1000));"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "Screen3",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "box1",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "Button",
+            "Name": "btn3",
+            "X": 407,
+            "Y": 206,
+            "Width": 60,
+            "Height": 60,
+            "Pressed": "__designer\\Blue_Buttons_Round_icon_button_pressed.png",
+            "Released": "__designer\\Blue_Buttons_Round_icon_button.png"
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "Y": 23,
+            "Width": 474,
+            "Height": 207,
+            "DataSeed": -1166692281,
+            "NumberOfValues": 100,
+            "MaxY": 500.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "LabelSizeTop": 12,
+            "LabelSizeBottom": 20,
+            "LabelSizeLeft": 30,
+            "PaddingBottom": 5,
+            "PaddingLeft": 5,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 4,
+                "Color": {
+                  "Red": 196,
+                  "Green": 22,
+                  "Blue": 54
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 50.0,
+              "LineWidth": 1
+            },
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "__SingleUse_15L2",
+              "TextRotation": "0",
+              "Position": "Bottom"
+            },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 50.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "TextId": "__SingleUse_S8WX",
+              "TextRotation": "0",
+              "Position": "Left"
+            }
+          },
+          {
+            "Type": "ToggleButton",
+            "Name": "toggleButton1",
+            "Y": 236,
+            "Width": 96,
+            "Height": 38,
+            "Pressed": "__designer\\Blue_Togglebars_Toggle_round_small_button_ON.png",
+            "Released": "__designer\\Blue_Togglebars_Toggle_round_small_button_OFF.png",
+            "Style": "Style5"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea1",
+            "X": 15,
+            "Y": 224,
+            "Width": 67,
+            "Height": 12,
+            "TextId": "__SingleUse_7FRR",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "textArea2",
+            "X": 23,
+            "Y": 1,
+            "Width": 222,
+            "Height": 22,
+            "TextId": "__SingleUse_E1U7",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "MainScreen",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn3"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionNone",
+              "ActionComponent": "Screen1"
+            }
+          },
+          {
+            "InteractionName": "UpdatePlot",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 10
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"main.h\"\r\n#include <stdlib.h>\r\nfloat LightReadout(void);",
+              "Code": "if(!toggleButton1.getState())\r\n  dynamicGraph1.addDataPoint((int)LightReadout());\r\nelse\r\n  dynamicGraph1.addDataPoint((int)(rand()%5000));"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "TestApp",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "Screen1",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash -j8",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F7508-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}
