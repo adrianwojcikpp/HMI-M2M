@@ -1,0 +1,5 @@
+C:/PP/Dydaktyka/MATERIALY/HMI_MATERIALY/HMI-M2M/STM32F7508-DK/MyFirstTouchGFXApp/Middlewares/Third_Party/FreeRTOS/Source/list.c:37:6:vListInitialise	0	static
+C:/PP/Dydaktyka/MATERIALY/HMI_MATERIALY/HMI-M2M/STM32F7508-DK/MyFirstTouchGFXApp/Middlewares/Third_Party/FreeRTOS/Source/list.c:62:6:vListInitialiseItem	0	static
+C:/PP/Dydaktyka/MATERIALY/HMI_MATERIALY/HMI-M2M/STM32F7508-DK/MyFirstTouchGFXApp/Middlewares/Third_Party/FreeRTOS/Source/list.c:74:6:vListInsertEnd	0	static
+C:/PP/Dydaktyka/MATERIALY/HMI_MATERIALY/HMI-M2M/STM32F7508-DK/MyFirstTouchGFXApp/Middlewares/Third_Party/FreeRTOS/Source/list.c:103:6:vListInsert	8	static
+C:/PP/Dydaktyka/MATERIALY/HMI_MATERIALY/HMI-M2M/STM32F7508-DK/MyFirstTouchGFXApp/Middlewares/Third_Party/FreeRTOS/Source/list.c:170:13:uxListRemove	0	static

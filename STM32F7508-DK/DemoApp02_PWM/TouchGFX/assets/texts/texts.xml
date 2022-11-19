@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.20.0">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1">
+      <Text Id="DIGITS" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0123456789</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_IF3W" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">0.00</Translation>
+      </Text>
+      <Text Id="__SingleUse_KXSZ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">V</Translation>
+      </Text>
+      <Text Id="__SingleUse_A04Z" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_11XQ" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">PWM output control:</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+  </Typographies>
+</TextDatabase>

@@ -1,0 +1,156 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "MainScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 272,
+            "LockPosition": true
+          },
+          {
+            "Type": "Slider",
+            "Name": "pwmSlider",
+            "X": 61,
+            "Y": 111,
+            "Width": 358,
+            "Height": 50,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__designer\\Blue_Slider_Horizontal_Medium_Slider_Round_back.png",
+            "BackgroundSelected": "__designer\\Blue_Slider_Horizontal_Medium_Slider_Round_fill.png",
+            "Indicator": "__designer\\Blue_Slider_Horizontal_Medium_Indicators_Slider_Round_nob.png",
+            "BackgroundX": 2,
+            "BackgroundY": 18,
+            "IndicatorPos": 2,
+            "IndicatorMax": 310,
+            "ValueMax": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pwmValue",
+            "X": 274,
+            "Y": 79,
+            "Width": 46,
+            "Height": 24,
+            "TextId": "__SingleUse_A04Z",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 232,
+              "Green": 183,
+              "Blue": 183
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_IF3W",
+              "UseBuffer": true,
+              "BufferSize": 5
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pwmUnit",
+            "X": 326,
+            "Y": 79,
+            "Width": 14,
+            "Height": 24,
+            "TextId": "__SingleUse_KXSZ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "pwmLabel",
+            "X": 61,
+            "Y": 79,
+            "Width": 206,
+            "Height": 24,
+            "TextId": "__SingleUse_11XQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "changeDutyCycle",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "pwmSlider"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim12;",
+              "Code": "// Set TIM Capture/Compare register value\r\nunsigned int ARR = __HAL_TIM_GET_AUTORELOAD(&htim12);\r\n__HAL_TIM_SET_COMPARE(&htim12, TIM_CHANNEL_1, (ARR+1)*value / 100);\r\n// Update label\r\nfloat output_voltage = 3.3 * value / 100.0;\r\nint volts = (int)output_voltage;\r\nint centivolts = (int)(100.0*output_voltage) - 100*volts;\r\nUnicode::snprintf(pwmValueBuffer, PWMVALUE_SIZE, \"%d.%02d\", volts, centivolts);\r\npwmValue.invalidate();"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "DemoApp02_PWM",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "MainScreen",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash -j8",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F7508-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}
