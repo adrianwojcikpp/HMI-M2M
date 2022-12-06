@@ -1,0 +1,402 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "StaticChartScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "StaticGraph",
+            "Name": "graph1",
+            "X": 31,
+            "Width": 449,
+            "Height": 248,
+            "DataSeed": 63763032,
+            "NumberOfValues": 100,
+            "MaxX": 100.0,
+            "PrecisionX": "1",
+            "MaxY": 100.0,
+            "PrecisionY": "1",
+            "XAxisScale": 1.0,
+            "LabelSizeTop": 10,
+            "LabelSizeBottom": 30,
+            "LabelSizeLeft": 40,
+            "LabelSizeRight": 21,
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 5,
+                "Color": {
+                  "Red": 196,
+                  "Green": 22,
+                  "Blue": 22
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 6.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "TextId": "__SingleUse_2XJ0",
+              "TextRotation": "0",
+              "Position": "Bottom"
+            },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "TextId": "__SingleUse_2JH5",
+              "TextRotation": "0",
+              "Position": "Left"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ylabel",
+            "X": 7,
+            "Y": 67,
+            "Width": 24,
+            "Height": 118,
+            "TextId": "__SingleUse_M2VJ",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "xlabel",
+            "X": 213,
+            "Y": 248,
+            "Width": 85,
+            "Height": 24,
+            "TextId": "__SingleUse_MCLQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "updateGraph",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 2
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim2;",
+              "Code": "float time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;\r\ngraph1.addDataPoint(time_s, time_s);"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "DynamicChartScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "X": 25,
+            "Width": 455,
+            "Height": 252,
+            "DataSeed": 1020476009,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "0.01",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "LabelSizeTop": 10,
+            "LabelSizeBottom": 30,
+            "LabelSizeLeft": 40,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 4,
+                "Color": {
+                  "Red": 196,
+                  "Green": 22,
+                  "Blue": 22
+                }
+              }
+            ],
+            "XAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "YAxisGrid": {
+              "Type": "GraphGrid",
+              "Color": {
+                "Red": 20,
+                "Green": 151,
+                "Blue": 197
+              },
+              "Interval": 10.0,
+              "LineWidth": 1
+            },
+            "XAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 247,
+                "Green": 253,
+                "Blue": 255
+              },
+              "TextId": "__SingleUse_XNOU",
+              "TextRotation": "0",
+              "Position": "Bottom"
+            },
+            "YAxisLabel": {
+              "Type": "GraphLabel",
+              "Interval": 10.0,
+              "DecimalSeparator": "Point",
+              "TextColor": {
+                "Red": 255,
+                "Green": 255,
+                "Blue": 255
+              },
+              "TextId": "__SingleUse_U26F",
+              "TextRotation": "0",
+              "Position": "Left"
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "xlabel",
+            "X": 182,
+            "Y": 248,
+            "Width": 140,
+            "Height": 24,
+            "TextId": "__SingleUse_MCJT",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "ylabel",
+            "X": 7,
+            "Y": 67,
+            "Width": 24,
+            "Height": 118,
+            "TextId": "__SingleUse_VSWH",
+            "TextRotation": "270",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "updateGraph",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 2
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Code": "static int i = 0;\r\ndynamicGraph1.addDataPoint(i % 100);\r\ni++;"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "TimeStampScreen",
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 272
+          },
+          {
+            "Type": "TextArea",
+            "Name": "label",
+            "X": 48,
+            "Y": 59,
+            "Width": 255,
+            "Height": 49,
+            "TextId": "__SingleUse_YJ7P",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "timestamp",
+            "X": 48,
+            "Y": 108,
+            "Width": 254,
+            "Height": 49,
+            "TextId": "__SingleUse_CFBD",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_W9NU",
+              "UseBuffer": true,
+              "BufferSize": 32
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "unit",
+            "X": 303,
+            "Y": 108,
+            "Width": 74,
+            "Height": 49,
+            "TextId": "__SingleUse_2ABM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "updateTimestamp",
+            "Trigger": {
+              "Type": "TriggerOnEveryTick",
+              "TickCount": 1
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim2;",
+              "Code": "unsigned int time_ms = __HAL_TIM_GET_COUNTER(&htim2)/1000;\r\nUnicode::snprintf(timestampBuffer, TIMESTAMP_SIZE, \"%010d\", time_ms);\r\ntimestamp.invalidate();"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "DemoApp05_Charts",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "StaticChartScreen",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash -j8",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F7508-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}
