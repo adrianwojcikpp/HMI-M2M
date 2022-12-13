@@ -8,11 +8,15 @@
 #include <mvp/View.hpp>
 #include <gui/dynamicchartscreen_screen/DynamicChartScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/graph/GraphScroll.hpp>
+#include <touchgfx/widgets/graph/GraphWrapAndClear.hpp>
 #include <touchgfx/widgets/graph/GraphElements.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#define _USE_MATH_DEFINES
+#include <math.h>
+#include "stm32f7xx_hal.h"
+extern TIM_HandleTypeDef htim2;
 
 class DynamicChartScreenViewBase : public touchgfx::View<DynamicChartScreenPresenter>
 {
@@ -32,7 +36,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background;
-    touchgfx::GraphScroll<100> dynamicGraph1;
+    touchgfx::GraphWrapAndClear<1600> dynamicGraph1;
     touchgfx::GraphElementLine dynamicGraph1Line1;
     touchgfx::PainterRGB565 dynamicGraph1Line1Painter;
     touchgfx::GraphElementGridX dynamicGraph1MajorXAxisGrid;
@@ -47,7 +51,7 @@ private:
     /*
      * Tick Counter Declarations
      */
-    static const uint32_t TICK_UPDATEGRAPH_INTERVAL = 2;
+    static const uint32_t TICK_UPDATEGRAPH_INTERVAL = 5;
     uint32_t frameCountupdateGraphInterval;
 
     /*

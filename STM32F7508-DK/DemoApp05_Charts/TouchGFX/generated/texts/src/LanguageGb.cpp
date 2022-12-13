@@ -11,16 +11,16 @@ KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE;
 TEXT_LOCATION_FLASH_PRAGMA
 KEEP extern const uint32_t indicesGb[] TEXT_LOCATION_FLASH_ATTRIBUTE = {
     27, // T_DIGITSLARGE: "0123456789."
-    0,  // T___SINGLEUSE_MCLQ: "Time [2*Tick]"
+    71, // T___SINGLEUSE_J5XF: "<>"
+    62, // T___SINGLEUSE_MCLQ: "Time [s]"
     14, // T___SINGLEUSE_M2VJ: "Value [unit]"
-    62, // T___SINGLEUSE_2JH5: "<>"
-    62, // T___SINGLEUSE_2XJ0: "<>"
+    71, // T___SINGLEUSE_2JH5: "<>"
+    71, // T___SINGLEUSE_2XJ0: "<>"
     14, // T___SINGLEUSE_VSWH: "Value [unit]"
     0,  // T___SINGLEUSE_MCJT: "Time [2*Tick]"
-    62, // T___SINGLEUSE_U26F: "<>"
-    62, // T___SINGLEUSE_XNOU: "<>"
+    71, // T___SINGLEUSE_U26F: "<>"
     51, // T___SINGLEUSE_W9NU: "0000000000"
-    64, // T___SINGLEUSE_2ABM: " ms"
-    62, // T___SINGLEUSE_CFBD: "<>"
+    73, // T___SINGLEUSE_2ABM: " ms"
+    71, // T___SINGLEUSE_CFBD: "<>"
     39  // T___SINGLEUSE_YJ7P: "Time stamp:"
 };

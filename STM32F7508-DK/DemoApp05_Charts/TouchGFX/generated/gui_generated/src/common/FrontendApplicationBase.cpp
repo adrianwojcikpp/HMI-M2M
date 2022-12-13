@@ -33,15 +33,15 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
  * Screen Transition Declarations
  */
 
-// StaticChartScreen
+// DynamicChartScreen
 
-void FrontendApplicationBase::gotoStaticChartScreenScreenNoTransition()
+void FrontendApplicationBase::gotoDynamicChartScreenScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoStaticChartScreenScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplication::gotoDynamicChartScreenScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoStaticChartScreenScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoDynamicChartScreenScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<StaticChartScreenView, StaticChartScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<DynamicChartScreenView, DynamicChartScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

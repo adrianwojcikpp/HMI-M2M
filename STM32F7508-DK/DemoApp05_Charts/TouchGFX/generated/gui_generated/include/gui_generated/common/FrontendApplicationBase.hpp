@@ -17,19 +17,19 @@ public:
 
     virtual void changeToStartScreen()
     {
-        gotoStaticChartScreenScreenNoTransition();
+        gotoDynamicChartScreenScreenNoTransition();
     }
 
-    // StaticChartScreen
-    void gotoStaticChartScreenScreenNoTransition();
+    // DynamicChartScreen
+    void gotoDynamicChartScreenScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // StaticChartScreen
-    void gotoStaticChartScreenScreenNoTransitionImpl();
+    // DynamicChartScreen
+    void gotoDynamicChartScreenScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

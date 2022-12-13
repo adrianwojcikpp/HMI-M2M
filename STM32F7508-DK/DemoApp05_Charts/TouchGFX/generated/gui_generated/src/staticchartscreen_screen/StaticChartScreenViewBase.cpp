@@ -19,33 +19,33 @@ StaticChartScreenViewBase::StaticChartScreenViewBase() :
     background.setPosition(0, 0, 480, 272);
     background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
 
-    graph1.setScaleX(1);
-    graph1.setScaleY(1);
+    graph1.setScaleX(100);
+    graph1.setScaleY(100);
     graph1.setPosition(31, 0, 449, 248);
     graph1.setGraphAreaMargin(10, 40, 21, 30);
     graph1.setGraphAreaPadding(0, 0, 0, 0);
     graph1.setGraphRangeX(0, 100);
     graph1.setGraphRangeY(0, 100);
 
-    graph1MajorXAxisGrid.setScale(1);
+    graph1MajorXAxisGrid.setScale(100);
     graph1MajorXAxisGrid.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
     graph1MajorXAxisGrid.setInterval(6);
     graph1MajorXAxisGrid.setLineWidth(1);
     graph1.addGraphElement(graph1MajorXAxisGrid);
 
-    graph1MajorYAxisGrid.setScale(1);
+    graph1MajorYAxisGrid.setScale(100);
     graph1MajorYAxisGrid.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
     graph1MajorYAxisGrid.setInterval(10);
     graph1MajorYAxisGrid.setLineWidth(1);
     graph1.addGraphElement(graph1MajorYAxisGrid);
 
-    graph1MajorXAxisLabel.setScale(1);
-    graph1MajorXAxisLabel.setInterval(10);
+    graph1MajorXAxisLabel.setScale(100);
+    graph1MajorXAxisLabel.setInterval(20);
     graph1MajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_2XJ0));
     graph1MajorXAxisLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     graph1.addBottomElement(graph1MajorXAxisLabel);
 
-    graph1MajorYAxisLabel.setScale(1);
+    graph1MajorYAxisLabel.setScale(100);
     graph1MajorYAxisLabel.setInterval(10);
     graph1MajorYAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_2JH5));
     graph1MajorYAxisLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
@@ -62,7 +62,7 @@ StaticChartScreenViewBase::StaticChartScreenViewBase() :
     ylabel.setRotation(touchgfx::TEXT_ROTATE_270);
     ylabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_M2VJ));
 
-    xlabel.setXY(182, 248);
+    xlabel.setXY(213, 248);
     xlabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     xlabel.setLinespacing(0);
     xlabel.setTypedText(touchgfx::TypedText(T___SINGLEUSE_MCLQ));
@@ -88,8 +88,34 @@ void StaticChartScreenViewBase::handleTickEvent()
         //updateGraph
         //When every N tick execute C++ code
         //Execute C++ code
+        // Add data point
         float time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;
-        graph1.addDataPoint(time_s, time_s);
+        float signal_u = 40 * sinf(2*M_PI*0.05f*time_s) + 50;
+        
+        graph1.addDataPoint(time_s, signal_u);
+        
+        // Wrap graph
+        static const float time_range_s = 100.0f;
+        static float time_limit_s = 100.0f;
+        
+        if(time_s >= time_limit_s)
+        {
+          time_limit_s += time_range_s;
+          graph1.setGraphRangeX(time_limit_s - time_range_s, time_limit_s);
+        }
+        
+        // Clear old data points
+        static const int point_cnt_limit = 4000;
+        static int point_cnt = 0;
+        
+        if(point_cnt < point_cnt_limit)
+        {
+          point_cnt++;
+        }
+        else
+        {
+          graph1.deleteDataPointIndex(0);
+        }
         frameCountupdateGraphInterval = 0;
     }
 

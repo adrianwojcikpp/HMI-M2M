@@ -10,6 +10,9 @@
       </Text>
     </TextGroup>
     <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_J5XF" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
       <Text Id="__SingleUse_MCLQ" Alignment="Left" TypographyId="Default">
         <Translation Language="GB">Time [s]</Translation>
       </Text>
@@ -29,9 +32,6 @@
         <Translation Language="GB">Time [2*Tick]</Translation>
       </Text>
       <Text Id="__SingleUse_U26F" Alignment="Right" TypographyId="Default">
-        <Translation Language="GB">&lt;&gt;</Translation>
-      </Text>
-      <Text Id="__SingleUse_XNOU" Alignment="Right" TypographyId="Default">
         <Translation Language="GB">&lt;&gt;</Translation>
       </Text>
       <Text Id="__SingleUse_W9NU" Alignment="Left" TypographyId="Large">

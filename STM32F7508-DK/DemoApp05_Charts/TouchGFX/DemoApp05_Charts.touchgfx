@@ -18,11 +18,11 @@
             "Width": 449,
             "Height": 248,
             "DataSeed": 63763032,
-            "NumberOfValues": 100,
+            "NumberOfValues": 4000,
             "MaxX": 100.0,
-            "PrecisionX": "1",
+            "PrecisionX": "0.01",
             "MaxY": 100.0,
-            "PrecisionY": "1",
+            "PrecisionY": "0.01",
             "XAxisScale": 1.0,
             "LabelSizeTop": 10,
             "LabelSizeBottom": 30,
@@ -61,7 +61,7 @@
             },
             "XAxisLabel": {
               "Type": "GraphLabel",
-              "Interval": 10.0,
+              "Interval": 20.0,
               "DecimalSeparator": "Point",
               "TextColor": {
                 "Red": 255,
@@ -128,8 +128,8 @@
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Includes": "#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim2;",
-              "Code": "float time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;\r\ngraph1.addDataPoint(time_s, time_s);"
+              "Includes": "#define _USE_MATH_DEFINES\r\n#include <math.h>\r\n#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim2;",
+              "Code": "// Add data point\r\nfloat time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;\r\nfloat signal_u = 40 * sinf(2*M_PI*0.05f*time_s) + 50;\r\n\r\ngraph1.addDataPoint(time_s, signal_u);\r\n\r\n// Wrap graph\r\nstatic const float time_range_s = 100.0f;\r\nstatic float time_limit_s = 100.0f;\r\n\r\nif(time_s >= time_limit_s)\r\n{\r\n  time_limit_s += time_range_s;\r\n  graph1.setGraphRangeX(time_limit_s - time_range_s, time_limit_s);\r\n}\r\n\r\n// Clear old data points\r\nstatic const int point_cnt_limit = 4000;\r\nstatic int point_cnt = 0;\r\n\r\nif(point_cnt < point_cnt_limit)\r\n{\r\n  point_cnt++;\r\n}\r\nelse\r\n{\r\n  graph1.deleteDataPointIndex(0);\r\n}"
             }
           }
         ]
@@ -151,15 +151,15 @@
             "Width": 455,
             "Height": 252,
             "DataSeed": 1020476009,
-            "NumberOfValues": 100,
+            "NumberOfValues": 1600,
             "MaxY": 100.0,
             "Precision": "0.01",
-            "LastIndex": 99,
+            "LastIndex": 1599,
             "XAxisScale": 1.0,
             "LabelSizeTop": 10,
             "LabelSizeBottom": 30,
             "LabelSizeLeft": 40,
-            "GraphType": "GraphScroll",
+            "GraphType": "GraphWrapClear",
             "GraphDrawers": [
               {
                 "Type": "LineDrawer",
@@ -178,7 +178,7 @@
                 "Green": 151,
                 "Blue": 197
               },
-              "Interval": 10.0,
+              "Interval": 400.0,
               "LineWidth": 1
             },
             "YAxisGrid": {
@@ -193,14 +193,14 @@
             },
             "XAxisLabel": {
               "Type": "GraphLabel",
-              "Interval": 10.0,
+              "Interval": 400.0,
               "DecimalSeparator": "Point",
               "TextColor": {
-                "Red": 247,
-                "Green": 253,
+                "Red": 255,
+                "Green": 255,
                 "Blue": 255
               },
-              "TextId": "__SingleUse_XNOU",
+              "TextId": "__SingleUse_J5XF",
               "TextRotation": "0",
               "Position": "Bottom"
             },
@@ -256,11 +256,12 @@
             "InteractionName": "updateGraph",
             "Trigger": {
               "Type": "TriggerOnEveryTick",
-              "TickCount": 2
+              "TickCount": 5
             },
             "Action": {
               "Type": "ActionExecuteCode",
-              "Code": "static int i = 0;\r\ndynamicGraph1.addDataPoint(i % 100);\r\ni++;"
+              "Includes": "#define _USE_MATH_DEFINES\r\n#include <math.h>\r\n#include \"stm32f7xx_hal.h\"\r\nextern TIM_HandleTypeDef htim2;",
+              "Code": "// Add data point\r\nfloat time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;\r\nfloat signal_u = 40 * sinf(2*M_PI*0.05f*time_s) + 50;\r\n\r\ndynamicGraph1.addDataPoint(signal_u);"
             }
           }
         ]
@@ -351,7 +352,7 @@
       "Height": 272
     },
     "SelectedColorDepth": 16,
-    "StartupScreenName": "StaticChartScreen",
+    "StartupScreenName": "DynamicChartScreen",
     "SelectedStartupLanguage": "GB",
     "Skin": "Blue",
     "TouchGfxPath": "../Middlewares/ST/touchgfx",

@@ -13,6 +13,8 @@
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/graph/GraphLabels.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
+#define _USE_MATH_DEFINES
+#include <math.h>
 #include "stm32f7xx_hal.h"
 extern TIM_HandleTypeDef htim2;
 
@@ -34,7 +36,7 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::Box background;
-    touchgfx::Graph<100> graph1;
+    touchgfx::Graph<4000> graph1;
     touchgfx::GraphElementLine graph1Line1;
     touchgfx::PainterRGB565 graph1Line1Painter;
     touchgfx::GraphElementGridX graph1MajorXAxisGrid;

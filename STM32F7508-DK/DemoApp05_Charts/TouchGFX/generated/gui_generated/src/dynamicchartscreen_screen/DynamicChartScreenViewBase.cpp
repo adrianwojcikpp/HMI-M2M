@@ -27,7 +27,7 @@ DynamicChartScreenViewBase::DynamicChartScreenViewBase() :
 
     dynamicGraph1MajorXAxisGrid.setScale(100);
     dynamicGraph1MajorXAxisGrid.setColor(touchgfx::Color::getColorFromRGB(20, 151, 197));
-    dynamicGraph1MajorXAxisGrid.setInterval(10);
+    dynamicGraph1MajorXAxisGrid.setInterval(400);
     dynamicGraph1MajorXAxisGrid.setLineWidth(1);
     dynamicGraph1.addGraphElement(dynamicGraph1MajorXAxisGrid);
 
@@ -38,9 +38,9 @@ DynamicChartScreenViewBase::DynamicChartScreenViewBase() :
     dynamicGraph1.addGraphElement(dynamicGraph1MajorYAxisGrid);
 
     dynamicGraph1MajorXAxisLabel.setScale(100);
-    dynamicGraph1MajorXAxisLabel.setInterval(10);
-    dynamicGraph1MajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_XNOU));
-    dynamicGraph1MajorXAxisLabel.setColor(touchgfx::Color::getColorFromRGB(247, 253, 255));
+    dynamicGraph1MajorXAxisLabel.setInterval(400);
+    dynamicGraph1MajorXAxisLabel.setLabelTypedText(touchgfx::TypedText(T___SINGLEUSE_J5XF));
+    dynamicGraph1MajorXAxisLabel.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     dynamicGraph1.addBottomElement(dynamicGraph1MajorXAxisLabel);
 
     dynamicGraph1MajorYAxisLabel.setScale(100);
@@ -86,9 +86,11 @@ void DynamicChartScreenViewBase::handleTickEvent()
         //updateGraph
         //When every N tick execute C++ code
         //Execute C++ code
-        static int i = 0;
-        dynamicGraph1.addDataPoint(i % 100);
-        i++;
+        // Add data point
+        float time_s = __HAL_TIM_GET_COUNTER(&htim2) / 1000000.0f;
+        float signal_u = 40 * sinf(2*M_PI*0.05f*time_s) + 50;
+        
+        dynamicGraph1.addDataPoint(signal_u);
         frameCountupdateGraphInterval = 0;
     }
 
