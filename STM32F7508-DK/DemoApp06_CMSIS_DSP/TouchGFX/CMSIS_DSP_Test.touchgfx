@@ -1,0 +1,272 @@
+{
+  "Application": {
+    "Screens": [
+      {
+        "Name": "TestScreen",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "background",
+            "Width": 480,
+            "Height": 272,
+            "LockPosition": true
+          },
+          {
+            "Type": "Slider",
+            "Name": "sliderx",
+            "X": 5,
+            "Y": 226,
+            "Width": 179,
+            "Height": 34,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_fill.png",
+            "BackgroundSelected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_back.png",
+            "Indicator": "__designer\\Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.png",
+            "BackgroundX": 3,
+            "BackgroundY": 7,
+            "IndicatorMax": 125,
+            "ValueMax": 100,
+            "InitValue": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "labelx",
+            "X": 16,
+            "Y": 210,
+            "Width": 53,
+            "Height": 12,
+            "TextId": "__SingleUse_DHE6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_U61R",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "Slider",
+            "Name": "slidery",
+            "X": 294,
+            "Y": 226,
+            "Width": 179,
+            "Height": 34,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_fill.png",
+            "BackgroundSelected": "__designer\\Blue_Slider_Horizontal_Small_slider_horizontal_small_round_back.png",
+            "Indicator": "__designer\\Blue_Slider_Horizontal_Small_Indicators_slider_horizontal_small_round_knob.png",
+            "BackgroundX": 3,
+            "BackgroundY": 7,
+            "IndicatorMax": 125,
+            "ValueMax": 100,
+            "InitValue": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "labely",
+            "X": 305,
+            "Y": 211,
+            "Width": 56,
+            "Height": 12,
+            "TextId": "__SingleUse_0Z5V",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_LA4K",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "Shape",
+            "Name": "backgroundtriangle",
+            "Width": 480,
+            "Height": 210,
+            "Points": [
+              {
+                "X": 1.0
+              },
+              {},
+              {
+                "X": 1.0,
+                "Y": 1.0
+              }
+            ],
+            "XScale": 470.0,
+            "YScale": 200.0,
+            "XOrigin": 5.0,
+            "YOrigin": 5.0
+          },
+          {
+            "Type": "Shape",
+            "Name": "triangle",
+            "Width": 480,
+            "Height": 210,
+            "Color": {
+              "Green": 105,
+              "Blue": 142
+            },
+            "Points": [
+              {},
+              {
+                "Y": 1.0
+              },
+              {
+                "X": 1.0,
+                "Y": 1.0
+              }
+            ],
+            "XScale": 470.0,
+            "YScale": 200.0,
+            "XOrigin": 5.0,
+            "YOrigin": 5.0
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hypotneuselengthlabel",
+            "X": 240,
+            "Y": 80,
+            "Width": 189,
+            "Height": 24,
+            "TextId": "__SingleUse_O2BO",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "hypotneuselength",
+            "X": 240,
+            "Y": 105,
+            "Width": 85,
+            "Height": 24,
+            "TextId": "__SingleUse_H8YC",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_Z1P3",
+              "UseBuffer": true,
+              "BufferSize": 16
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "mainlabel",
+            "X": 27,
+            "Y": 8,
+            "Width": 426,
+            "Height": 42,
+            "TextId": "__SingleUse_B6CM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "changey",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "slidery"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include \"arm_math.h\"",
+              "Code": "triangle.setCorner(0, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));\r\ntriangle.updateAbstractShapeCache();\r\ntriangle.invalidate();\r\n\r\nbackgroundtriangle.setCorner(1, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));\r\nbackgroundtriangle.updateAbstractShapeCache();\r\nbackgroundtriangle.invalidate();\r\n\r\nfloat a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());\r\nfloat b = 470.0f * triangle.getCornerX(2).to<float>();\r\n\r\n  /* CMSIS DSP complex arithmetic */\r\n  float ab[] = {a,b};\r\n  float c;\r\n  arm_cmplx_mag_f32(ab, &c, 1);\r\n\r\nUnicode::snprintf(labelyBuffer, LABELY_SIZE, \"%d\", (int)a);\r\nlabely.invalidate();\r\n\r\nint c_disp = c * 100;\r\nUnicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, \"%d.%02d\", c_disp/100, c_disp%100);\r\n\r\nint16_t hyplen_y = 80 * (2.0f - value/100.f) + 25;\r\nint16_t hyplen_x = hypotneuselength.getX();\r\n\r\nhypotneuselength.moveTo(hyplen_x, hyplen_y);\r\nhypotneuselength.invalidate();\r\n\r\nhypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);\r\nhypotneuselengthlabel.invalidate();"
+            }
+          },
+          {
+            "InteractionName": "changex",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "sliderx"
+            },
+            "Action": {
+              "Type": "ActionExecuteCode",
+              "Includes": "#include <complex>",
+              "Code": "triangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));\r\ntriangle.updateAbstractShapeCache();\r\ntriangle.invalidate();\r\n\r\nbackgroundtriangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));\r\nbackgroundtriangle.updateAbstractShapeCache();\r\nbackgroundtriangle.invalidate();\r\n\r\nfloat a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());\r\nfloat b = 470.0f * triangle.getCornerX(2).to<float>(); \r\n\r\n  /* C++ standard complex arithmetic */\r\n  std::complex<float> ab(a, b);\r\n  float c = abs(ab);\r\n\r\nUnicode::snprintf(labelxBuffer, LABELX_SIZE, \"%d\", (int)b);\r\nlabelx.invalidate();\r\n\r\nint c_disp = c * 100;\r\nUnicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, \"%d.%02d\", c_disp/100, c_disp%100);\r\n\r\nint16_t hyplen_x = 240 * (value/100.f);\r\nint16_t hyplen_y = hypotneuselength.getY();\r\n\r\nhypotneuselength.moveTo(hyplen_x, hyplen_y);\r\nhypotneuselength.invalidate();\r\n\r\nhypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);\r\nhypotneuselengthlabel.invalidate();\r\n\r\n"
+            }
+          }
+        ]
+      }
+    ],
+    "CustomContainerDefinitions": [],
+    "Name": "CMSIS_DSP_Test",
+    "Resolution": {
+      "Width": 480,
+      "Height": 272
+    },
+    "SelectedColorDepth": 16,
+    "StartupScreenName": "TestScreen",
+    "SelectedStartupLanguage": "GB",
+    "Skin": "Blue",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "UIPath": ".",
+    "AvailableColorDepths": [
+      16
+    ],
+    "AvailableLCDs": {
+      "16": "LCD16bpp"
+    },
+    "AvailableSections": [
+      "ExtFlashSection",
+      "IntFlashSection"
+    ],
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 272
+      }
+    ],
+    "PhysicalButtons": [],
+    "FrameworkFeatures": {
+      "LCD16bpp": {
+        "Id": "LCD16bpp",
+        "IsEnabled": true
+      }
+    },
+    "GenerateAssetsCommand": "make -f simulator/gcc/Makefile assets -j8",
+    "PostGenerateCommand": "touchgfx update_project --project-file=simulator/msvs/Application.vcxproj",
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "CompileSimulatorCommand": "make -f simulator/gcc/Makefile -j8",
+    "RunSimulatorCommand": "build\\bin\\simulator.exe",
+    "CompileTargetCommand": "make -f ../gcc/Makefile -j8",
+    "FlashTargetCommand": "make -f ../gcc/Makefile flash -j8",
+    "LandscapeSkinX": 0,
+    "LandscapeSkinY": 0,
+    "PortraitSkinX": 0,
+    "PortraitSkinY": 0,
+    "DisplayOrientation": "Landscape",
+    "Family": "STM32F7",
+    "Platform": "m7",
+    "ProjectFile": "../STM32F7508-DK.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": []
+  },
+  "Version": "4.20.0",
+  "CreatedBy": "4.20.0"
+}

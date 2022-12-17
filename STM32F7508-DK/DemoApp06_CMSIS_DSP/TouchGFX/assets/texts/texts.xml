@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.20.0">
+  <Languages>
+    <Language Id="GB" />
+  </Languages>
+  <Texts>
+    <TextGroup Id="Group1">
+      <Text Id="ResourceId2" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">0123456789</Translation>
+      </Text>
+      <Text Id="ResourceId1" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">123456789</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_B6CM" Alignment="Left" TypographyId="Large">
+        <Translation Language="GB">CMSIS DSP 5.7.0 Test</Translation>
+      </Text>
+      <Text Id="__SingleUse_LA4K" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">200</Translation>
+      </Text>
+      <Text Id="__SingleUse_U61R" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">470</Translation>
+      </Text>
+      <Text Id="__SingleUse_Z1P3" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">510.78  </Translation>
+      </Text>
+      <Text Id="__SingleUse_H8YC" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">&lt;Hypotenuse length&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_O2BO" Alignment="Left" TypographyId="Default">
+        <Translation Language="GB">Hypotenuse length</Translation>
+      </Text>
+      <Text Id="__SingleUse_0Z5V" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Height:&lt;value&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_DHE6" Alignment="Left" TypographyId="Small">
+        <Translation Language="GB">Width:&lt;value&gt;</Translation>
+      </Text>
+    </TextGroup>
+  </Texts>
+  <Typographies>
+    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Large" Font="verdanab.ttf" Size="35" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" Direction="LTR" FallbackCharacter="?" />
+  </Typographies>
+</TextDatabase>
