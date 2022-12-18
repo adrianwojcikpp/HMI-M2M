@@ -26,8 +26,8 @@
             "BackgroundX": 3,
             "BackgroundY": 7,
             "IndicatorMax": 125,
-            "ValueMax": 100,
-            "InitValue": 100
+            "ValueMax": 470,
+            "InitValue": 470
           },
           {
             "Type": "TextArea",
@@ -64,8 +64,8 @@
             "BackgroundX": 3,
             "BackgroundY": 7,
             "IndicatorMax": 125,
-            "ValueMax": 100,
-            "InitValue": 100
+            "ValueMax": 200,
+            "InitValue": 200
           },
           {
             "Type": "TextArea",
@@ -95,16 +95,16 @@
             "Height": 210,
             "Points": [
               {
-                "X": 1.0
+                "X": 470.0
               },
               {},
               {
-                "X": 1.0,
-                "Y": 1.0
+                "X": 470.0,
+                "Y": 200.0
               }
             ],
-            "XScale": 470.0,
-            "YScale": 200.0,
+            "XScale": 1.0,
+            "YScale": 1.0,
             "XOrigin": 5.0,
             "YOrigin": 5.0
           },
@@ -120,15 +120,15 @@
             "Points": [
               {},
               {
-                "Y": 1.0
+                "Y": 200.0
               },
               {
-                "X": 1.0,
-                "Y": 1.0
+                "X": 470.0,
+                "Y": 200.0
               }
             ],
-            "XScale": 470.0,
-            "YScale": 200.0,
+            "XScale": 1.0,
+            "YScale": 1.0,
             "XOrigin": 5.0,
             "YOrigin": 5.0
           },
@@ -153,7 +153,7 @@
             "Name": "hypotneuselength",
             "X": 240,
             "Y": 105,
-            "Width": 85,
+            "Width": 90,
             "Height": 24,
             "TextId": "__SingleUse_H8YC",
             "TextRotation": "0",
@@ -194,9 +194,8 @@
               "TriggerComponent": "slidery"
             },
             "Action": {
-              "Type": "ActionExecuteCode",
-              "Includes": "#include \"arm_math.h\"",
-              "Code": "triangle.setCorner(0, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));\r\ntriangle.updateAbstractShapeCache();\r\ntriangle.invalidate();\r\n\r\nbackgroundtriangle.setCorner(1, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));\r\nbackgroundtriangle.updateAbstractShapeCache();\r\nbackgroundtriangle.invalidate();\r\n\r\nfloat a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());\r\nfloat b = 470.0f * triangle.getCornerX(2).to<float>();\r\n\r\n  /* CMSIS DSP complex arithmetic */\r\n  float ab[] = {a,b};\r\n  float c;\r\n  arm_cmplx_mag_f32(ab, &c, 1);\r\n\r\nUnicode::snprintf(labelyBuffer, LABELY_SIZE, \"%d\", (int)a);\r\nlabely.invalidate();\r\n\r\nint c_disp = c * 100;\r\nUnicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, \"%d.%02d\", c_disp/100, c_disp%100);\r\n\r\nint16_t hyplen_y = 80 * (2.0f - value/100.f) + 25;\r\nint16_t hyplen_x = hypotneuselength.getX();\r\n\r\nhypotneuselength.moveTo(hyplen_x, hyplen_y);\r\nhypotneuselength.invalidate();\r\n\r\nhypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);\r\nhypotneuselengthlabel.invalidate();"
+              "Type": "ActionCustom",
+              "FunctionName": "updateHeight"
             }
           },
           {
@@ -206,9 +205,8 @@
               "TriggerComponent": "sliderx"
             },
             "Action": {
-              "Type": "ActionExecuteCode",
-              "Includes": "#include <complex>",
-              "Code": "triangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));\r\ntriangle.updateAbstractShapeCache();\r\ntriangle.invalidate();\r\n\r\nbackgroundtriangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));\r\nbackgroundtriangle.updateAbstractShapeCache();\r\nbackgroundtriangle.invalidate();\r\n\r\nfloat a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());\r\nfloat b = 470.0f * triangle.getCornerX(2).to<float>(); \r\n\r\n  /* C++ standard complex arithmetic */\r\n  std::complex<float> ab(a, b);\r\n  float c = abs(ab);\r\n\r\nUnicode::snprintf(labelxBuffer, LABELX_SIZE, \"%d\", (int)b);\r\nlabelx.invalidate();\r\n\r\nint c_disp = c * 100;\r\nUnicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, \"%d.%02d\", c_disp/100, c_disp%100);\r\n\r\nint16_t hyplen_x = 240 * (value/100.f);\r\nint16_t hyplen_y = hypotneuselength.getY();\r\n\r\nhypotneuselength.moveTo(hyplen_x, hyplen_y);\r\nhypotneuselength.invalidate();\r\n\r\nhypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);\r\nhypotneuselengthlabel.invalidate();\r\n\r\n"
+              "Type": "ActionCustom",
+              "FunctionName": "updateWidth"
             }
           }
         ]

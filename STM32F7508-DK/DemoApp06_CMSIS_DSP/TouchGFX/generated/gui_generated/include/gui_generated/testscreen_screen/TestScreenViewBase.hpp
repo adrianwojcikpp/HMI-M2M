@@ -13,8 +13,6 @@
 #include <touchgfx/widgets/canvas/Shape.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB565.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include "arm_math.h"
-#include <complex>
 
 class TestScreenViewBase : public touchgfx::View<TestScreenPresenter>
 {
@@ -22,6 +20,19 @@ public:
     TestScreenViewBase();
     virtual ~TestScreenViewBase() {}
     virtual void setupScreen();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void updateHeight(int value)
+    {
+        // Override and implement this function in TestScreen
+    }
+
+    virtual void updateWidth(int value)
+    {
+        // Override and implement this function in TestScreen
+    }
 
 protected:
     FrontendApplication& application() {

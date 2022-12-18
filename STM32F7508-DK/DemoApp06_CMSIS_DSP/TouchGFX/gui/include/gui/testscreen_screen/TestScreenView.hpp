@@ -12,6 +12,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
 protected:
+    virtual void updateHeight(int value);
+    virtual void updateWidth(int value);
 };
 
 #endif // TESTSCREENVIEW_HPP

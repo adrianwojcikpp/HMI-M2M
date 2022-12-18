@@ -23,8 +23,8 @@ TestScreenViewBase::TestScreenViewBase() :
     sliderx.setXY(5, 226);
     sliderx.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     sliderx.setupHorizontalSlider(3, 7, 0, 0, 125);
-    sliderx.setValueRange(0, 100);
-    sliderx.setValue(100);
+    sliderx.setValueRange(0, 470);
+    sliderx.setValue(470);
     sliderx.setNewValueCallback(sliderValueChangedCallback);
 
     labelx.setXY(16, 210);
@@ -38,8 +38,8 @@ TestScreenViewBase::TestScreenViewBase() :
     slidery.setXY(294, 226);
     slidery.setBitmaps(touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_FILL_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_SLIDER_HORIZONTAL_SMALL_ROUND_BACK_ID), touchgfx::Bitmap(BITMAP_BLUE_SLIDER_HORIZONTAL_SMALL_INDICATORS_SLIDER_HORIZONTAL_SMALL_ROUND_KNOB_ID));
     slidery.setupHorizontalSlider(3, 7, 0, 0, 125);
-    slidery.setValueRange(0, 100);
-    slidery.setValue(100);
+    slidery.setValueRange(0, 200);
+    slidery.setValue(200);
     slidery.setNewValueCallback(sliderValueChangedCallback);
 
     labely.setXY(305, 211);
@@ -52,20 +52,20 @@ TestScreenViewBase::TestScreenViewBase() :
 
     backgroundtriangle.setPosition(0, 0, 480, 210);
     backgroundtriangle.setOrigin(5.0f, 5.0f);
-    backgroundtriangle.setScale(470.0f, 200.0f);
+    backgroundtriangle.setScale(1.0f, 1.0f);
     backgroundtriangle.setAngle(0.0f);
     backgroundtrianglePainter.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     backgroundtriangle.setPainter(backgroundtrianglePainter);
-    const touchgfx::AbstractShape::ShapePoint<float> backgroundtrianglePoints[3] = { { 1.0f, 0.0f }, { 0.0f, 0.0f }, { 1.0f, 1.0f } };
+    const touchgfx::AbstractShape::ShapePoint<float> backgroundtrianglePoints[3] = { { 470.0f, 0.0f }, { 0.0f, 0.0f }, { 470.0f, 200.0f } };
     backgroundtriangle.setShape(backgroundtrianglePoints);
 
     triangle.setPosition(0, 0, 480, 210);
     triangle.setOrigin(5.0f, 5.0f);
-    triangle.setScale(470.0f, 200.0f);
+    triangle.setScale(1.0f, 1.0f);
     triangle.setAngle(0.0f);
     trianglePainter.setColor(touchgfx::Color::getColorFromRGB(0, 105, 142));
     triangle.setPainter(trianglePainter);
-    const touchgfx::AbstractShape::ShapePoint<float> trianglePoints[3] = { { 0.0f, 0.0f }, { 0.0f, 1.0f }, { 1.0f, 1.0f } };
+    const touchgfx::AbstractShape::ShapePoint<float> trianglePoints[3] = { { 0.0f, 0.0f }, { 0.0f, 200.0f }, { 470.0f, 200.0f } };
     triangle.setShape(trianglePoints);
 
     hypotneuselengthlabel.setXY(240, 80);
@@ -109,72 +109,15 @@ void TestScreenViewBase::sliderValueChangedCallbackHandler(const touchgfx::Slide
     if (&src == &sliderx)
     {
         //changex
-        //When sliderx value changed execute C++ code
-        //Execute C++ code
-        triangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));
-        triangle.updateAbstractShapeCache();
-        triangle.invalidate();
-        
-        backgroundtriangle.setCorner(2, CWRUtil::toQ5<float>(value/100.f), CWRUtil::toQ5<int>(1));
-        backgroundtriangle.updateAbstractShapeCache();
-        backgroundtriangle.invalidate();
-        
-        float a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());
-        float b = 470.0f * triangle.getCornerX(2).to<float>(); 
-        
-          /* C++ standard complex arithmetic */
-          std::complex<float> ab(a, b);
-          float c = abs(ab);
-        
-        Unicode::snprintf(labelxBuffer, LABELX_SIZE, "%d", (int)b);
-        labelx.invalidate();
-        
-        int c_disp = c * 100;
-        Unicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, "%d.%02d", c_disp/100, c_disp%100);
-        
-        int16_t hyplen_x = 240 * (value/100.f);
-        int16_t hyplen_y = hypotneuselength.getY();
-        
-        hypotneuselength.moveTo(hyplen_x, hyplen_y);
-        hypotneuselength.invalidate();
-        
-        hypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);
-        hypotneuselengthlabel.invalidate();
+        //When sliderx value changed call virtual function
+        //Call updateWidth
+        updateWidth(value);
     }
     else if (&src == &slidery)
     {
         //changey
-        //When slidery value changed execute C++ code
-        //Execute C++ code
-        triangle.setCorner(0, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));
-        triangle.updateAbstractShapeCache();
-        triangle.invalidate();
-        
-        backgroundtriangle.setCorner(1, CWRUtil::toQ5<int>(0), CWRUtil::toQ5<float>(1.0f - value/100.f));
-        backgroundtriangle.updateAbstractShapeCache();
-        backgroundtriangle.invalidate();
-        
-        float a = 200.0f * (1.0 - triangle.getCornerY(0).to<float>());
-        float b = 470.0f * triangle.getCornerX(2).to<float>();
-        
-          /* CMSIS DSP complex arithmetic */
-          float ab[] = {a,b};
-          float c;
-          arm_cmplx_mag_f32(ab, &c, 1);
-        
-        Unicode::snprintf(labelyBuffer, LABELY_SIZE, "%d", (int)a);
-        labely.invalidate();
-        
-        int c_disp = c * 100;
-        Unicode::snprintf(hypotneuselengthBuffer, HYPOTNEUSELENGTH_SIZE, "%d.%02d", c_disp/100, c_disp%100);
-        
-        int16_t hyplen_y = 80 * (2.0f - value/100.f) + 25;
-        int16_t hyplen_x = hypotneuselength.getX();
-        
-        hypotneuselength.moveTo(hyplen_x, hyplen_y);
-        hypotneuselength.invalidate();
-        
-        hypotneuselengthlabel.moveTo(hyplen_x, hyplen_y - 25);
-        hypotneuselengthlabel.invalidate();
+        //When slidery value changed call virtual function
+        //Call updateHeight
+        updateHeight(value);
     }
 }
