@@ -16,7 +16,7 @@ function tf2dsp_fir(varname, fir_coeffs, blocksize)
         ['};'                                                                                               ]; 
         ['float32_t *' varname '_coeffs = (float32_t*)' varname '_coeffs_hex;'                              ];
         ['// Filter instance'                                                                               ];  
-        ['arm_fir_init_f32 ' varname ';'                                                                    ];
+        ['arm_fir_instance_f32 ' varname ';'                                                                    ];
     };
     
     fileID = fopen([varname '.c'],'w');
@@ -36,7 +36,7 @@ function tf2dsp_fir(varname, fir_coeffs, blocksize)
         ['// Filter coefficients'                                              ];
         ['extern float32_t *' varname '_coeffs;'                               ];
         ['// Filter instance'                                                  ];       
-        ['extern arm_fir_init_f32 ' varname ';'                                ];
+        ['extern arm_fir_instance_f32 ' varname ';'                                ];
         ['#endif // INC_' upper(varname) '_H_'                                 ];
     };
     
